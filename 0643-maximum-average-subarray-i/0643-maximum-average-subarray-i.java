@@ -12,14 +12,8 @@ class Solution {
                 total -= nums[prev];
                 prev++;
             }
-
-            if(total / k > max)
-            {
-                max = total / k;
-            }
-                
-                
+            max = Math.max(max, total);
         }
-        return max;
+        return max/k;
     }
 }
