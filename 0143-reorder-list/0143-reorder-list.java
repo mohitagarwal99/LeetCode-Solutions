@@ -9,26 +9,42 @@
  * }
  */
 class Solution {
+    
     public void reorderList(ListNode head) {
-        if(head.next == null)
+        if (head == null || head.next == null) {
             return;
-        ArrayList<Integer> al = new ArrayList<>();
-        ListNode temp = head.next;
-        while(temp != null)
-        {
-            al.add(temp.val);
-            temp = temp.next;
         }
-        head.next = new ListNode(al.remove(al.size()-1));
-        temp = head.next;
-        int size = al.size();
-        for(int i = 0; i < size/2; i++)
-        {
-            temp.next = new ListNode(al.remove(0));
-            temp.next.next = new ListNode(al.remove(al.size() - 1));
-            temp = temp.next.next;
+
+        // Step 1: Find the middle of the linked list
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        if(!al.isEmpty())
-            temp.next = new ListNode(al.remove(0));
+
+        // Step 2: Reverse the second half of the linked list
+        ListNode prev = null;
+        ListNode current = slow.next;
+        slow.next = null; // Break the link to the second half
+        while (current != null) {
+            ListNode temp = current.next;
+            current.next = prev;
+            prev = current;
+            current = temp;
+        }
+
+        // Step 3: Merge the first half and the reversed second half alternatively
+        ListNode first = head;
+        ListNode second = prev;
+        while (second != null) {
+            ListNode firstNext = first.next;
+            ListNode secondNext = second.next;
+            first.next = second;
+            second.next = firstNext;
+            first = firstNext;
+            second = secondNext;
+        }
     }
+
 }
