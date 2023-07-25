@@ -8,11 +8,11 @@ class Solution {
             {
                 if(s2.charAt(i) > s2.charAt(n-i-1))
                 {
-                    s2.replace(i, i+1, (s2.charAt(n-i-1))+"");
+                    s2.replace(i, i+1, s2.charAt(n-i-1)+"");
                 }
                 else
                 {
-                    s2.replace(n-i-1, n-i, (s2.charAt(i))+"");
+                    s2.replace(n-i-1, n-i, s2.charAt(i)+"");
                 }
             }
         }
