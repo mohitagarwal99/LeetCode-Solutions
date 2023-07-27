@@ -13,7 +13,7 @@ class Solution {
         if(head == null)
             return head;
         ListNode temp = head;
-        while(temp != null && temp.next != null)
+        while(temp.next != null)
         {
             if(temp.next.val == val)
             {
