@@ -35,8 +35,8 @@ class Solution {
             {
                 cur = (prev1  + prev2) % 1000000007;
                 
-                prev1 = prev2 % 1000000007;
-                prev2 = cur % 1000000007;
+                prev1 = prev2 ;
+                prev2 = cur ;
             }
         }
         return cur ;
