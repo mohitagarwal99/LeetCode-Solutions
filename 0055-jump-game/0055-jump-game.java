@@ -4,12 +4,10 @@ class Solution {
         return helper(nums, nums.length, 0, dp);
     }
     public boolean helper(int[] nums, int n, int ind, boolean dp[]){
-        // System.out.println(n + " "+ ind);
         if(ind >= n-1){
             return true;
         }
         if(nums[ind] == 0){
-            // System.out.println("if");
             return false;
         }
         if(dp[ind]){
