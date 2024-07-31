@@ -12,12 +12,7 @@ class Solution {
             dp[n-1] = Math.min(dp[n-1], jump);
             return;
         }
-        
-//         if(nums[ind] + ind >= n-1){
-//             dp[n-1] = Math.min(dp[n-1], jump+1);
-//             return;
-//         }
-        
+
         if(nums[ind] == 0){
             return;
         }
@@ -27,8 +22,6 @@ class Solution {
         dp[ind] = jump;
         for(int i = nums[ind];  i >= 1; i--){
             helper(nums, n, ind+i, dp, jump+1);
-            // if(dp[n-1] != Integer.MAX_VALUE)
-            //     return;
             }
         
         return;
